@@ -4,6 +4,7 @@
 // that code so it'll be compiled.
 
 import Rails from '@rails/ujs'
+import "@hotwired/turbo-rails"
 import * as ActiveStorage from '@rails/activestorage'
 import 'channels'
 
@@ -22,3 +23,5 @@ ActiveStorage.start()
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+import "controllers"

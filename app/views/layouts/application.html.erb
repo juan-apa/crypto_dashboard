@@ -10,54 +10,46 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <title><%= @title ? @title + " - " : "" %>Rails Starter</title>
+  <title><%= @title ? @title + " - " : "" %>Rails + Turbolinks Starter</title>
 
   <!-- Main font -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900" rel="stylesheet">
 
   <!-- Icons. Uncomment required icon fonts -->
-  <!-- <%= stylesheet_pack_tag 'vendor/fonts/fontawesome', media: 'all' %> -->
-  <%= stylesheet_pack_tag 'vendor/fonts/ionicons', media: 'all' %>
-  <!-- <%= stylesheet_pack_tag 'vendor/fonts/linearicons', media: 'all' %> -->
-  <!-- <%= stylesheet_pack_tag 'vendor/fonts/open-iconic', media: 'all' %> -->
-  <!-- <%= stylesheet_pack_tag 'vendor/fonts/pe-icon-7-stroke', media: 'all' %> -->
+  <%= stylesheet_pack_tag 'vendor/fonts/fontawesome', media: 'all', 'data-turbolinks-track': 'reload' %>
 
   <!-- Core stylesheets -->
-  <%= stylesheet_pack_tag 'vendor/bootstrap', media: 'all' %>
-  <%= stylesheet_pack_tag 'vendor/appwork', media: 'all' %>
-  <%= stylesheet_pack_tag 'vendor/theme-corporate', media: 'all' %>
-  <%= stylesheet_pack_tag 'vendor/colors', media: 'all' %>
-  <%= stylesheet_pack_tag 'vendor/uikit', media: 'all' %>
-  <%= stylesheet_pack_tag 'application', media: 'all' %>
+  <%= stylesheet_pack_tag 'vendor/bootstrap-dark', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'vendor/appwork-dark', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'vendor/theme-twitlight-dark', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'vendor/colors-dark', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'vendor/uikit', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
   <!-- Load polyfills -->
-  <%= javascript_pack_tag 'vendor/polyfills' %>
+  <%= javascript_pack_tag 'vendor/polyfills', 'data-turbolinks-track': 'reload' %>
   <script>document['documentMode']===10&&document.write('<script src="https://polyfill.io/v3/polyfill.min.js?features=Intl.~locale.en"><\/script>')</script>
 
   <!-- Layout helpers -->
-  <%= javascript_pack_tag 'vendor/layout-helpers' %>
+  <%= javascript_pack_tag 'vendor/layout-helpers', 'data-turbolinks-track': 'reload' %>
 
-  <!-- Libs -->
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <!-- `perfect-scrollbar` library required by SideNav plugin -->
-  <%= stylesheet_pack_tag 'vendor/libs/perfect-scrollbar/perfect-scrollbar', media: 'all' %>
+  <%= stylesheet_pack_tag 'vendor/libs/perfect-scrollbar/perfect-scrollbar', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'vendor/libs/perfect-scrollbar/perfect-scrollbar', 'data-turbolinks-track': 'reload' %>
 
-  <%= yield :styles %>
+  <!-- Core scripts -->
+  <%= javascript_pack_tag 'vendor/libs/popper/popper', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'vendor/bootstrap', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'vendor/sidenav', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <%= yield :head %>
 </head>
 <body>
 
   <%= content_for?(:content) ? yield(:content) : yield %>
-
-  <!-- Core scripts -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <%= javascript_pack_tag 'vendor/libs/popper/popper' %>
-  <%= javascript_pack_tag 'vendor/bootstrap' %>
-  <%= javascript_pack_tag 'vendor/sidenav' %>
-
-  <!-- Scripts -->
-  <%= javascript_pack_tag 'vendor/libs/perfect-scrollbar/perfect-scrollbar' %>
-  <%= javascript_pack_tag 'application' %>
-
-  <%= yield :scripts %>
 </body>
 </html>
