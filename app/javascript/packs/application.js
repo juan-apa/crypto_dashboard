@@ -25,3 +25,5 @@ ActiveStorage.start()
 // const imagePath = (name) => images(name, true)
 
 import "controllers"
+
+require("./service-worker-companion");
