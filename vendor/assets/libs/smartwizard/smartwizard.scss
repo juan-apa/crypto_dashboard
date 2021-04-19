@@ -1,0 +1,379 @@
+@import '../../stylesheets/_custom-variables/libs';
+
+$sw-icon-size: 2.5rem !default;
+$sw-icon-border-width: 2px !default;
+$sw-icon-font-size: 1rem !default;
+$sw-spacer: 2rem !default;
+
+.sw-theme-default {
+  &,
+  > .tab-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  > .tab-content {
+    flex-shrink: 1;
+  }
+
+  > .nav {
+    flex-direction: row;
+
+    &:not(.card) {
+      border: 0;
+    }
+
+    li {
+      display: flex;
+      flex-grow: 1;
+    }
+  }
+
+  > .nav .nav-link {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 $sw-spacer 0 ($sw-icon-size + 1.25rem);
+    min-height: $sw-icon-size;
+    outline: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    text-decoration: none;
+    font-weight: 500;
+
+    @include feature-rtl {
+      padding-right: ($sw-icon-size + 1.25rem);
+      padding-left: $sw-spacer;
+    }
+
+    small,
+    .small {
+      font-weight: normal;
+    }
+  }
+
+  > .nav .inactive {
+    opacity: .4;
+    cursor: default;
+  }
+
+  > .nav .active,
+  > .nav .done {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  > .nav .disabled .nav-link,
+  > .nav .disabled .nav-link:hover {
+    cursor: not-allowed !important;
+  }
+
+  .sw-number,
+  .sw-icon,
+  .sw-done-icon {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -$sw-icon-size / 2;
+    width: $sw-icon-size;
+    height: $sw-icon-size;
+    border: $sw-icon-border-width solid;
+    border-radius: 50%;
+    text-align: center;
+    line-height: calc(#{$sw-icon-size} - #{($sw-icon-border-width * 2)});
+
+    @include feature-rtl {
+      right: 0;
+      left: auto;
+    }
+  }
+
+  .sw-icon,
+  .sw-done-icon {
+    font-size: $sw-icon-font-size;
+  }
+
+  .sw-done-icon {
+    display: none;
+  }
+
+  > .nav .done .sw-done-icon {
+    display: block;
+
+     ~ .sw-number,
+     ~ .sw-icon {
+      display: none;
+    }
+  }
+
+  .wizard-number {
+    font-weight: 500;
+  }
+
+  > .nav .done .sw-number,
+  > .nav .done .sw-icon,
+  > .nav .done .sw-done-icon {
+    opacity: .4;
+  }
+
+  > .tab-content > .tab-pane {
+    position: relative;
+    display: none;
+    margin: 0;
+    width: 100%;
+  }
+
+  > .toolbar {
+    justify-content: flex-end;
+    padding: 0;
+  }
+
+  > .toolbar .btn + .btn,
+  > .tab-content > .toolbar .btn + .btn {
+    margin-left: .25rem;
+
+    @include feature-rtl {
+      margin-left: 0;
+      margin-right: .25rem;
+    }
+  }
+}
+
+@if $enable-light-style {
+  .light-style {
+    @import "../../stylesheets/_appwork/include";
+
+    .sw-theme-default {
+      > .nav .nav-link {
+        color: $body-color;
+      }
+
+      > .nav .danger {
+        color: map-get($theme-colors, danger) !important;
+      }
+
+      .sw-number,
+      .sw-icon,
+      .sw-done-icon {
+        border-color: $border-color;
+      }
+
+      > .nav .danger .sw-number,
+      > .nav .danger .sw-icon,
+      > .nav .danger .sw-done-icon {
+        border-color: map-get($theme-colors, danger) !important;
+        color: map-get($theme-colors, danger) !important;
+      }
+    }
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      .smartwizard-vertical-left,
+      .smartwizard-vertical-right {
+        flex-direction: row;
+      }
+
+      .smartwizard-vertical-left > .nav,
+      .smartwizard-vertical-right > .nav {
+        align-self: flex-start;
+        flex-direction: column;
+
+        li {
+          flex-grow: 0;
+        }
+      }
+
+      .sw-theme-default {
+        &.smartwizard-vertical-right {
+          flex-direction: row-reverse;
+        }
+
+        &.smartwizard-vertical-right > .nav .nav-link {
+          padding: 0 0 0 (($sw-icon-size + 1.25rem) + 2rem);
+        }
+
+        &.smartwizard-vertical-right .sw-number,
+        &.smartwizard-vertical-right .sw-icon,
+        &.smartwizard-vertical-right .sw-done-icon {
+          left: 2rem;
+        }
+      }
+    }
+
+    @include feature-rtl-style {
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        .sw-theme-default {
+          &.smartwizard-vertical-right > .nav .nav-link {
+            padding: 0 (($sw-icon-size + 1.25rem) + 2rem) 0 0;
+          }
+
+          &.smartwizard-vertical-right .sw-number,
+          &.smartwizard-vertical-right .sw-icon,
+          &.smartwizard-vertical-right .sw-done-icon {
+            right: 2rem;
+            left: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+@if $enable-material-style {
+  .material-style {
+    @import "../../stylesheets/_appwork/include-material";
+
+    .sw-theme-default {
+      > .nav .nav-link {
+        color: $body-color;
+      }
+
+      > .nav .danger {
+        color: map-get($theme-colors, danger) !important;
+      }
+
+      .sw-number,
+      .sw-icon,
+      .sw-done-icon {
+        border-color: $border-color;
+      }
+
+      > .nav .danger .sw-number,
+      > .nav .danger .sw-icon,
+      > .nav .danger .sw-done-icon {
+        border-color: map-get($theme-colors, danger) !important;
+        color: map-get($theme-colors, danger) !important;
+      }
+    }
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      .smartwizard-vertical-left,
+      .smartwizard-vertical-right {
+        flex-direction: row;
+      }
+
+      .smartwizard-vertical-left > .nav,
+      .smartwizard-vertical-right > .nav {
+        align-self: flex-start;
+        flex-direction: column;
+
+        li {
+          flex-grow: 0;
+        }
+      }
+
+      .sw-theme-default {
+        &.smartwizard-vertical-right {
+          flex-direction: row-reverse;
+        }
+
+        &.smartwizard-vertical-right > .nav .nav-link {
+          padding: 0 0 0 (($sw-icon-size + 1.25rem) + 2rem);
+        }
+
+        &.smartwizard-vertical-right .sw-number,
+        &.smartwizard-vertical-right .sw-icon,
+        &.smartwizard-vertical-right .sw-done-icon {
+          left: 2rem;
+        }
+      }
+    }
+
+    @include feature-rtl-style {
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        .sw-theme-default {
+          &.smartwizard-vertical-right > .nav .nav-link {
+            padding: 0 (($sw-icon-size + 1.25rem) + 2rem) 0 0;
+          }
+
+          &.smartwizard-vertical-right .sw-number,
+          &.smartwizard-vertical-right .sw-icon,
+          &.smartwizard-vertical-right .sw-done-icon {
+            right: 2rem;
+            left: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+@if $enable-dark-style {
+  .dark-style {
+    @import "../../stylesheets/_appwork/include-dark";
+
+    .sw-theme-default {
+      > .nav .nav-link {
+        color: $body-color;
+      }
+
+      > .nav .danger {
+        color: map-get($theme-colors, danger) !important;
+      }
+
+      .sw-number,
+      .sw-icon,
+      .sw-done-icon {
+        border-color: $border-color;
+      }
+
+      > .nav .danger .sw-number,
+      > .nav .danger .sw-icon,
+      > .nav .danger .sw-done-icon {
+        border-color: map-get($theme-colors, danger) !important;
+        color: map-get($theme-colors, danger) !important;
+      }
+    }
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      .smartwizard-vertical-left,
+      .smartwizard-vertical-right {
+        flex-direction: row;
+      }
+
+      .smartwizard-vertical-left > .nav,
+      .smartwizard-vertical-right > .nav {
+        align-self: flex-start;
+        flex-direction: column;
+
+        li {
+          flex-grow: 0;
+        }
+      }
+
+      .sw-theme-default {
+        &.smartwizard-vertical-right {
+          flex-direction: row-reverse;
+        }
+
+        &.smartwizard-vertical-right > .nav .nav-link {
+          padding: 0 0 0 (($sw-icon-size + 1.25rem) + 2rem);
+        }
+
+        &.smartwizard-vertical-right .sw-number,
+        &.smartwizard-vertical-right .sw-icon,
+        &.smartwizard-vertical-right .sw-done-icon {
+          left: 2rem;
+        }
+      }
+    }
+
+    @include feature-rtl-style {
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        .sw-theme-default {
+          &.smartwizard-vertical-right > .nav .nav-link {
+            padding: 0 (($sw-icon-size + 1.25rem) + 2rem) 0 0;
+          }
+
+          &.smartwizard-vertical-right .sw-number,
+          &.smartwizard-vertical-right .sw-icon,
+          &.smartwizard-vertical-right .sw-done-icon {
+            right: 2rem;
+            left: auto;
+          }
+        }
+      }
+    }
+  }
+}

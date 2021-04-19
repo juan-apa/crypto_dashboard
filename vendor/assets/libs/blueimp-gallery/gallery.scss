@@ -1,0 +1,116 @@
+@import '../../stylesheets/_custom-variables/libs';
+@import '~blueimp-gallery/css/blueimp-gallery';
+
+.blueimp-gallery a.close,
+.blueimp-gallery a.prev,
+.blueimp-gallery a.next {
+  background-image: none;
+}
+
+.blueimp-gallery > .slides > .slide-loading {
+  // background-image: url(img/loading.gif);
+}
+.blueimp-gallery > .slides > .slide-error {
+  // background-image: url(img/error.svg);
+}
+.blueimp-gallery > .play-pause {
+  // background-image: url(img/play-pause.svg);
+}
+
+.blueimp-gallery {
+  a.close,
+  a.prev,
+  a.next {
+    color: #fff !important;
+    font-size: 2rem;
+    padding: 0;
+    line-height: 40px;
+    text-align: center;
+    height: 40px;
+    width: 40px;
+    font-weight: 300;
+  }
+
+  .prev,
+  .next {
+    border-color: transparent;
+  }
+}
+
+.blueimp-gallery a.close {
+  &:hover,
+  &:focus {
+    opacity: .5 !important;
+  }
+}
+
+.blueimp-gallery-carousel {
+  box-shadow: none;
+}
+
+@include feature-rtl(false) {
+  .blueimp-gallery {
+    direction: rtl;
+  }
+  .blueimp-gallery > .slides > .slide {
+    float: right;
+  }
+  .blueimp-gallery > .prev,
+  .blueimp-gallery > .next {
+    left: auto;
+    right: 15px;
+  }
+  .blueimp-gallery > .next {
+    right: auto;
+    left: 15px;
+  }
+  .blueimp-gallery > .play-pause {
+    transform: scaleX(-1);
+  }
+  .blueimp-gallery > .close,
+  .blueimp-gallery > .title {
+    left: auto;
+    right: 15px;
+    margin-right: 0;
+    margin-left: 40px;
+  }
+  .blueimp-gallery > .close {
+    left: 15px;
+    right: auto;
+    margin: -15px;
+  }
+  .blueimp-gallery > .play-pause {
+    right: auto;
+    left: 15px;
+  }
+}
+
+@if $enable-light-style {
+  .light-style {
+    @import "../../stylesheets/_appwork/include";
+
+    .blueimp-gallery:not(.blueimp-gallery-carousel) {
+      z-index: $zindex-modal-top;
+    }
+  }
+}
+
+@if $enable-material-style {
+  .material-style {
+    @import "../../stylesheets/_appwork/include-material";
+
+    .blueimp-gallery:not(.blueimp-gallery-carousel) {
+      z-index: $zindex-modal-top;
+    }
+  }
+}
+
+@if $enable-dark-style {
+  .dark-style {
+    @import "../../stylesheets/_appwork/include-dark";
+
+    .blueimp-gallery:not(.blueimp-gallery-carousel) {
+      z-index: $zindex-modal-top;
+    }
+  }
+}

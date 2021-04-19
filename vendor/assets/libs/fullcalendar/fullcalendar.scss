@@ -1,0 +1,158 @@
+@import '../../stylesheets/_custom-variables/libs';
+@import 'mixins';
+
+$fullcalendar-nonbusiness-bg: rgba(0, 0, 0, .02) !default;
+$fullcalendar-today-bg: rgba(#02BC77, .05) !default;
+$fullcalendar-button-padding: .375rem .75rem !default;
+
+.fc-h-event,
+.fc-v-event {
+  border-color: transparent !important;
+  box-shadow: none !important;
+
+  .fc-event-main {
+    color: inherit !important;
+  }
+}
+
+.fc .fc-non-business,
+.fc .fc-list-empty {
+  background: $fullcalendar-nonbusiness-bg !important;
+}
+
+.fc-day-today {
+  background: $fullcalendar-today-bg !important;
+}
+
+.fc-toolbar {
+  .btn {
+    padding: $fullcalendar-button-padding;
+  }
+}
+
+.fc-popover {
+  font-size: inherit !important;
+}
+
+@if $enable-light-style {
+  .light-style {
+    @import "../../stylesheets/_appwork/include";
+
+    .fc-col-header th,
+    .fc-timeline-header-row th,
+    .fc .fc-daygrid-week-number,
+    .fc-list-day a {
+      font-size: $font-size-sm !important;
+      line-height: $line-height-sm !important;
+      font-weight: $font-weight-semibold !important;
+      text-transform: uppercase;
+    }
+
+    .fc-daygrid-dot-event:hover,
+    .fc-daygrid-dot-event.fc-event-mirror,
+    .fc .fc-daygrid-week-number,
+    .fc .fc-list-event:hover td {
+      background: $gray-50;
+    }
+
+    .fc-toolbar .btn {
+      font-size: $font-size-sm !important;
+      line-height: $line-height-sm !important;
+    }
+
+    .fc-toolbar h2 {
+      font-size: $h3-font-size;
+      font-weight: $font-weight-light;
+    }
+
+    @each $color, $value in $theme-colors {
+      @if $color !=primary {
+        .fc-event-#{$color} {
+          @include fullcalendar-event-variant($value);
+        }
+      }
+    }
+  }
+}
+
+@if $enable-material-style {
+  .material-style {
+    @import "../../stylesheets/_appwork/include-material";
+
+    .fc-col-header th,
+    .fc-timeline-header-row th,
+    .fc .fc-daygrid-week-number,
+    .fc-list-day a {
+      font-size: $font-size-sm !important;
+      line-height: $line-height-sm !important;
+      font-weight: $font-weight-semibold !important;
+      text-transform: uppercase;
+    }
+
+    .fc-daygrid-dot-event:hover,
+    .fc-daygrid-dot-event.fc-event-mirror,
+    .fc .fc-daygrid-week-number,
+    .fc .fc-list-event:hover td {
+      background: $gray-50;
+    }
+
+    .fc-toolbar .btn {
+      font-size: $font-size-sm !important;
+      line-height: $line-height-sm !important;
+    }
+
+    .fc-toolbar h2 {
+      font-size: $h3-font-size;
+      font-weight: $font-weight-light;
+    }
+
+    @each $color, $value in $theme-colors {
+      @if $color !=primary {
+        .fc-event-#{$color} {
+          @include fullcalendar-event-variant($value);
+        }
+      }
+    }
+  }
+}
+
+@if $enable-dark-style {
+  .dark-style {
+    @import "../../stylesheets/_appwork/include-dark";
+
+    .fc-col-header th,
+    .fc-timeline-header-row th,
+    .fc .fc-daygrid-week-number,
+    .fc-list-day a {
+      font-size: $font-size-sm !important;
+      line-height: $line-height-sm !important;
+      font-weight: $font-weight-semibold !important;
+      text-transform: uppercase;
+    }
+
+    .fc-daygrid-dot-event:hover,
+    .fc-daygrid-dot-event.fc-event-mirror,
+    .fc .fc-daygrid-week-number,
+    .fc .fc-list-event:hover td {
+      background: $gray-50;
+    }
+
+    .fc-toolbar .btn {
+      font-size: $font-size-sm !important;
+      line-height: $line-height-sm !important;
+    }
+
+    .fc-toolbar h2 {
+      font-size: $h3-font-size;
+      font-weight: $font-weight-light;
+    }
+
+    @each $color, $value in $theme-colors {
+      @if $color !=primary {
+        .fc-event-#{$color} {
+          @include fullcalendar-event-dark-variant($value);
+        }
+      }
+    }
+  }
+}

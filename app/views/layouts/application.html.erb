@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en" class="light-style">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <title><%= @title ? @title + " - " : "" %>Rails Starter</title>
+
+  <!-- Main font -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900" rel="stylesheet">
+
+  <!-- Icons. Uncomment required icon fonts -->
+  <!-- <%= stylesheet_pack_tag 'vendor/fonts/fontawesome', media: 'all' %> -->
+  <%= stylesheet_pack_tag 'vendor/fonts/ionicons', media: 'all' %>
+  <!-- <%= stylesheet_pack_tag 'vendor/fonts/linearicons', media: 'all' %> -->
+  <!-- <%= stylesheet_pack_tag 'vendor/fonts/open-iconic', media: 'all' %> -->
+  <!-- <%= stylesheet_pack_tag 'vendor/fonts/pe-icon-7-stroke', media: 'all' %> -->
+
+  <!-- Core stylesheets -->
+  <%= stylesheet_pack_tag 'vendor/bootstrap', media: 'all' %>
+  <%= stylesheet_pack_tag 'vendor/appwork', media: 'all' %>
+  <%= stylesheet_pack_tag 'vendor/theme-corporate', media: 'all' %>
+  <%= stylesheet_pack_tag 'vendor/colors', media: 'all' %>
+  <%= stylesheet_pack_tag 'vendor/uikit', media: 'all' %>
+  <%= stylesheet_pack_tag 'application', media: 'all' %>
+
+  <!-- Load polyfills -->
+  <%= javascript_pack_tag 'vendor/polyfills' %>
+  <script>document['documentMode']===10&&document.write('<script src="https://polyfill.io/v3/polyfill.min.js?features=Intl.~locale.en"><\/script>')</script>
+
+  <!-- Layout helpers -->
+  <%= javascript_pack_tag 'vendor/layout-helpers' %>
+
+  <!-- Libs -->
+
+  <!-- `perfect-scrollbar` library required by SideNav plugin -->
+  <%= stylesheet_pack_tag 'vendor/libs/perfect-scrollbar/perfect-scrollbar', media: 'all' %>
+
+  <%= yield :styles %>
+</head>
+<body>
+
+  <%= content_for?(:content) ? yield(:content) : yield %>
+
+  <!-- Core scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <%= javascript_pack_tag 'vendor/libs/popper/popper' %>
+  <%= javascript_pack_tag 'vendor/bootstrap' %>
+  <%= javascript_pack_tag 'vendor/sidenav' %>
+
+  <!-- Scripts -->
+  <%= javascript_pack_tag 'vendor/libs/perfect-scrollbar/perfect-scrollbar' %>
+  <%= javascript_pack_tag 'application' %>
+
+  <%= yield :scripts %>
+</body>
+</html>

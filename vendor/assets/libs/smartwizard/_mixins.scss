@@ -1,0 +1,7 @@
+@mixin smartwizard-theme($color) {
+  .sw-theme-default > .nav .active .sw-icon,
+  .sw-theme-default > .nav .active .sw-number {
+    color: $color;
+    border-color: $color;
+  }
+}
