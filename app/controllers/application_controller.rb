@@ -1,4 +1,3 @@
 class ApplicationController < ActionController::Base
-  # Default layout
-  layout 'main/layout-1'
+  layout 'main/layout-2'
 end
