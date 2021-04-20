@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_action :authenticate_user!, except: :service_worker
   skip_before_action :verify_authenticity_token, only: :service_worker
 
   def index

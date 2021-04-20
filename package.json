@@ -90,7 +90,7 @@
     "tableexport.jquery.plugin": "~1.10.8",
     "text-mask-addons": "~3.8.0",
     "timepicker": "~1.13.0",
-    "toastr": "~2.1.4",
+    "toastr": "^2.1.4",
     "typeahead.js": "~0.11.1",
     "url-polyfill": "^1.1.7",
     "vanilla-text-mask": "~5.1.1",
