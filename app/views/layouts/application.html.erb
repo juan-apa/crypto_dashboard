@@ -42,6 +42,10 @@
   <%= stylesheet_pack_tag 'vendor/libs/perfect-scrollbar/perfect-scrollbar', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'vendor/libs/perfect-scrollbar/perfect-scrollbar', 'data-turbolinks-track': 'reload' %>
 
+  <!-- Toastr notifications -->
+  <%= javascript_pack_tag 'vendor/libs/toastr/toastr', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'vendor/libs/toastr/toastr', media: 'all', 'data-turbolinks-track': 'reload' %>
+
   <!-- Core scripts -->
   <%= javascript_pack_tag 'vendor/libs/popper/popper', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'vendor/bootstrap', 'data-turbolinks-track': 'reload' %>
@@ -51,8 +55,8 @@
   <%= yield :head %>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <%= render "layouts/partials/layout-notification" %>
+
   <%= content_for?(:content) ? yield(:content) : yield %>
 </body>
 </html>

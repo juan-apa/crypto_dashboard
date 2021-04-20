@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+@import "toastr/toastr";
+
+.alert-dismissible {
+  padding-left: $close-font-size + $alert-padding-x * 2;
+}
