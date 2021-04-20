@@ -13,12 +13,12 @@ gem 'pg', '~> 1.2', '>= 1.2.3'
 gem 'puma', '~> 5.0'
 gem 'redis', '~> 4.0'
 gem 'sass-rails', '>= 6'
-gem 'sqlite3', '~> 1.4'
 gem 'webpacker', '~> 5.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
+  gem 'sqlite3', '~> 1.4'
 end
 
 group :development do
