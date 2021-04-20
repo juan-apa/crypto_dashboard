@@ -51,7 +51,8 @@
   <%= yield :head %>
 </head>
 <body>
-
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
   <%= content_for?(:content) ? yield(:content) : yield %>
 </body>
 </html>
