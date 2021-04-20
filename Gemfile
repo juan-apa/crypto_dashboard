@@ -20,6 +20,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'erb_lint', '~> 0.0.37', require: false
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'rubocop-rails', require: false

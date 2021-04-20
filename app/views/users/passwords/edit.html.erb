@@ -3,18 +3,18 @@
     <h2 class="text-center">Change your password</h2>
 
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-      <%= render "users/shared/error_messages", resource: resource %>
+      <%= render 'users/shared/error_messages', resource: resource %>
       <%= f.hidden_field :reset_password_token %>
 
       <div class="form-group">
-        <%= f.password_field :password, autofocus: true, autocomplete: "off", class: 'form-control', placeholder: "Password" %>
+        <%= f.password_field :password, autofocus: true, autocomplete: 'off', class: 'form-control', placeholder: 'Password' %>
         <% if @minimum_password_length %>
           <p class="text-muted"><small><%= @minimum_password_length %> characters minimum</small></p>
         <% end %>
       </div>
 
       <div class="form-group">
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: "Confirm Password" %>
+        <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control', placeholder: 'Confirm Password' %>
       </div>
 
       <div class="form-group">
@@ -23,7 +23,7 @@
     <% end %>
 
     <div class="text-center">
-      <%= render "users/shared/links" %>
+      <%= render 'users/shared/links' %>
     </div>
   </div>
 </div>
