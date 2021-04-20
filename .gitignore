@@ -78,3 +78,6 @@ ehthumbs_vista.db
 
 # Vagrant
 /.vagrant
+
+# Env variables from dotenv-rails
+.env

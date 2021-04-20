@@ -9,6 +9,7 @@ gem 'rails', '~> 6.1.3'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'hotwire-rails', '~> 0.1.3'
+gem 'pg', '~> 1.2', '>= 1.2.3'
 gem 'puma', '~> 5.0'
 gem 'redis', '~> 4.0'
 gem 'sass-rails', '>= 6'
@@ -17,6 +18,7 @@ gem 'webpacker', '~> 5.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 end
 
 group :development do
