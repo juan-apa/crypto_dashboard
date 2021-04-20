@@ -19,8 +19,13 @@
 
   <!-- Icons. Uncomment required icon fonts -->
   <%= stylesheet_pack_tag 'vendor/fonts/fontawesome', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'vendor/fonts/ionicons', media: 'all', 'data-turbolinks-track': 'reload' %>
 
   <!-- Core stylesheets -->
+  <script>
+    var isDark = true;
+  </script>
+  
   <%= stylesheet_pack_tag 'vendor/bootstrap-dark', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_pack_tag 'vendor/appwork-dark', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_pack_tag 'vendor/theme-twitlight-dark', media: 'all', 'data-turbolinks-track': 'reload' %>
