@@ -10,7 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_20_003537) do
+ActiveRecord::Schema.define(version: 2021_05_10_142456) do
+
+  create_table "coins", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "slug", null: false
+    t.string "symbol", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["symbol"], name: "index_coins_on_symbol", unique: true
+  end
+
+  create_table "dashboards", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name", null: false
+    t.boolean "default", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_dashboards_on_user_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer "from_coin_id", null: false
+    t.integer "to_coin_id", null: false
+    t.integer "dashboard_id"
+    t.decimal "from_amount", precision: 20, scale: 10, null: false
+    t.decimal "to_amount", precision: 20, scale: 10, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dashboard_id"], name: "index_transactions_on_dashboard_id"
+    t.index ["from_coin_id"], name: "index_transactions_on_from_coin_id"
+    t.index ["to_coin_id"], name: "index_transactions_on_to_coin_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -31,4 +62,6 @@ ActiveRecord::Schema.define(version: 2021_04_20_003537) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "transactions", "coins", column: "from_coin_id"
+  add_foreign_key "transactions", "coins", column: "to_coin_id"
 end
