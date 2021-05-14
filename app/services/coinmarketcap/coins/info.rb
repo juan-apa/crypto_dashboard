@@ -1,6 +1,6 @@
 module Coinmarketcap
   module Coins
-    class InfoService < Coinmarketcap::GetterBaseService
+    class Info < Coinmarketcap::GetterBaseService
       def initialize(params)
         super(sanitize_params(params))
       end

@@ -6,4 +6,5 @@ class User < ApplicationRecord
          :trackable
 
   has_many :dashboards
+  belongs_to :default_coin, class_name: "Coin", foreign_key: "default_coin_id"
 end

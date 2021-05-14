@@ -1,11 +1,16 @@
 class Dashboard < ApplicationRecord
   belongs_to :user
   has_many :transactions
-  has_many :coins, -> { distinct }, through: :transactions
+  has_many :from_coins, -> { distinct }, through: :transactions, source: :from_coin
+  has_many :to_coins, -> { distinct }, through: :transactions, source: :to_coin
 
   after_validation :set_default_value, if: :first_dashboard?
   after_commit :set_default, only: %i[create update]
   after_destroy :set_first_default
+
+  def coins
+    Coin.where(id: from_coins + to_coins).distinct.where.not(id: user_default_coin.id)
+  end
 
   def set_default_value
     self.default = true
@@ -27,5 +32,9 @@ class Dashboard < ApplicationRecord
 
   def user_dashboards
     Dashboard.where(user_id: user_id)
+  end
+
+  def user_default_coin
+    user.default_coin
   end
 end

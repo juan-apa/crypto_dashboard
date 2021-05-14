@@ -5,8 +5,8 @@ class CreateTransactions < ActiveRecord::Migration[6.1]
       t.references :to_coin, null: false
       t.belongs_to :dashboard
 
-      t.decimal :from_amount, precision: 20, scale: 10, null: false
-      t.decimal :to_amount, precision: 20, scale: 10, null: false
+      t.decimal :from_amount, precision: 30, scale: 10, null: false
+      t.decimal :to_amount, precision: 30, scale: 10, null: false
 
       t.timestamps
     end

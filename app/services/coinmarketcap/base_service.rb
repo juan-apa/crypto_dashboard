@@ -18,5 +18,9 @@ module Coinmarketcap
         'Accept': 'application/json'
       }
     end
+
+    def default_coin
+      Coin.find_by(symbol: ENV.fetch('SYSTEM_DEFAULT_COIN_SYMBOL', 'USDT'))
+    end
   end
 end
