@@ -38,7 +38,7 @@ function appendStylesheets() {
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
   }
-  .turbolinks-progress-bar {
+  .turbo-progress-bar {
     visibility: hidden !important;
   }
   [dir=rtl] .pace-running:not(.pace-done) .page-loader div,

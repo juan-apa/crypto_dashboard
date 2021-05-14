@@ -3,7 +3,7 @@
   let [ firstLoad, sidenavInstance ] = [ true, null ]
 
   doc.addEventListener('turbo:before-render', e => {
-    if (!themeSettings || $('html')[0].hasAttribute('data-turbolinks-preview')) return
+    if (!themeSettings || $('html')[0].hasAttribute('data-turbo-preview')) return
 
     // Remove unwanted merged stylesheets on each render
     $('.theme-settings-bootstrap-css').slice(1).remove()

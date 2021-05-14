@@ -12,50 +12,50 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <title><%= @title ? @title + " - " : "" %>Rails + Turbolinks Starter</title>
+  <title><%= @title ? @title : 'Rails + Turbo Starter'%></title>
 
   <!-- Main font -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900" rel="stylesheet">
 
   <!-- Icons. Uncomment required icon fonts -->
-  <%= stylesheet_pack_tag 'vendor/fonts/fontawesome', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_pack_tag 'vendor/fonts/ionicons', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'vendor/fonts/fontawesome', media: 'all', 'data-turbo-track': 'reload' %>
+  <%= stylesheet_pack_tag 'vendor/fonts/ionicons', media: 'all', 'data-turbo-track': 'reload' %>
 
   <!-- Core stylesheets -->
   <script>
     var isDark = true;
   </script>
   
-  <%= stylesheet_pack_tag 'vendor/bootstrap-dark', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_pack_tag 'vendor/appwork-dark', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_pack_tag 'vendor/theme-twitlight-dark', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_pack_tag 'vendor/colors-dark', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_pack_tag 'vendor/uikit', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'vendor/bootstrap-dark', media: 'all', 'data-turbo-track': 'reload' %>
+  <%= stylesheet_pack_tag 'vendor/appwork-dark', media: 'all', 'data-turbo-track': 'reload' %>
+  <%= stylesheet_pack_tag 'vendor/theme-twitlight-dark', media: 'all', 'data-turbo-track': 'reload' %>
+  <%= stylesheet_pack_tag 'vendor/colors-dark', media: 'all', 'data-turbo-track': 'reload' %>
+  <%= stylesheet_pack_tag 'vendor/uikit', media: 'all', 'data-turbo-track': 'reload' %>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
 
   <!-- Load polyfills -->
-  <%= javascript_pack_tag 'vendor/polyfills', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'vendor/polyfills', 'data-turbo-track': 'reload' %>
   <script>document['documentMode']===10&&document.write('<script src="https://polyfill.io/v3/polyfill.min.js?features=Intl.~locale.en"><\/script>')</script>
 
   <!-- Layout helpers -->
-  <%= javascript_pack_tag 'vendor/layout-helpers', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'vendor/layout-helpers', 'data-turbo-track': 'reload' %>
 
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <!-- `perfect-scrollbar` library required by SideNav plugin -->
-  <%= stylesheet_pack_tag 'vendor/libs/perfect-scrollbar/perfect-scrollbar', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'vendor/libs/perfect-scrollbar/perfect-scrollbar', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'vendor/libs/perfect-scrollbar/perfect-scrollbar', media: 'all', 'data-turbo-track': 'reload' %>
+  <%= javascript_pack_tag 'vendor/libs/perfect-scrollbar/perfect-scrollbar', 'data-turbo-track': 'reload' %>
 
   <!-- Toastr notifications -->
-  <%= javascript_pack_tag 'vendor/libs/toastr/toastr', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_pack_tag 'vendor/libs/toastr/toastr', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'vendor/libs/toastr/toastr', 'data-turbo-track': 'reload' %>
+  <%= stylesheet_pack_tag 'vendor/libs/toastr/toastr', media: 'all', 'data-turbo-track': 'reload' %>
 
   <!-- Core scripts -->
-  <%= javascript_pack_tag 'vendor/libs/popper/popper', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'vendor/bootstrap', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'vendor/sidenav', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'vendor/libs/popper/popper', 'data-turbo-track': 'reload' %>
+  <%= javascript_pack_tag 'vendor/bootstrap', 'data-turbo-track': 'reload' %>
+  <%= javascript_pack_tag 'vendor/sidenav', 'data-turbo-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload' %>
 
   <%= yield :head %>
 </head>
