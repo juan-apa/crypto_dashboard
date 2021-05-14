@@ -4,4 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :trackable
+
+  has_many :dashboards
+  belongs_to :default_coin, class_name: "Coin", foreign_key: "default_coin_id"
 end
