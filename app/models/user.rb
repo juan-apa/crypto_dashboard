@@ -7,4 +7,8 @@ class User < ApplicationRecord
 
   has_many :dashboards
   belongs_to :default_coin, class_name: "Coin", foreign_key: "default_coin_id"
+
+  def default_dashboard
+    dashboards.find_by(default: true)
+  end
 end

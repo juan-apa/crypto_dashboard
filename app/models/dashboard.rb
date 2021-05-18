@@ -9,7 +9,7 @@ class Dashboard < ApplicationRecord
   after_destroy :set_first_default
 
   def coins
-    Coin.where(id: from_coins + to_coins).distinct.where.not(id: user_default_coin.id)
+    Coin.where(id: from_coins + to_coins).where.not(id: user_default_coin.id).distinct
   end
 
   def set_default_value

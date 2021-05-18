@@ -1,0 +1,33 @@
+let <%= chart_id %>_values = <%= @data[:diversification].map { |coin| coin[:percentage] } %>;
+console.log(<%= chart_id %>_values)
+new Chart(document.getElementById('<%= chart_id %>').getContext("2d"), {
+  type: 'doughnut',
+  data: {
+    datasets: [{
+      data: <%= chart_id %>_values,
+      backgroundColor: ['#fff', 'rgba(255,255,255,0.3)'],
+      hoverBackgroundColor: ['#fff', 'rgba(255,255,255,0.3)'],
+      borderWidth: 0
+    }]
+  },
+
+  options: {
+    scales: {
+      xAxes: [{
+        display: false,
+      }],
+      yAxes: [{
+        display: false
+      }]
+    },
+    legend: {
+      display: true
+    },
+    tooltips: {
+      enabled: false
+    },
+    cutoutPercentage: 94,
+    responsive: true,
+    maintainAspectRatio: false
+  }
+});

@@ -28,6 +28,7 @@ module Calculators
   
           {
             coin_id: coin.id,
+            coin: coin,
             current_coin_amount: current_coin_amount,
             current_value: current_value
           }

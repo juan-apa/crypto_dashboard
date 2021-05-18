@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   }
 
   devise_scope :users do
-    root 'home#index'
+    root 'dashboards#index'
+    resource :dashboard, only: :index
+    get 'dashboards/:id/coins', to: 'dashboards#coins'
   end
-  get 'service-worker.js', to: 'home#service_worker'
+  get 'service-worker.js', to: 'dashboards#service_worker'
 end

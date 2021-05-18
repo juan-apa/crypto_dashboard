@@ -3,6 +3,8 @@ module Coinmarketcap
     class Exchange < Coinmarketcap::GetterBaseService
       attr_reader :coins, :exchange_coins
 
+      ENDPOINT = '/v1/cryptocurrency/quotes/latest'
+
       def call
         convert_result(super())
       end
@@ -14,9 +16,11 @@ module Coinmarketcap
       end
 
       def request
-        self.class.get('/v1/cryptocurrency/quotes/latest', base_uri: base_uri,
-                                                           headers: headers,
-                                                           query: @params)
+        Rails.cache.fetch([ENDPOINT, @params], expires: 1.minute) do
+          self.class.get(ENDPOINT, base_uri: base_uri,
+            headers: headers,
+            query: @params)
+        end
       end
 
       private
