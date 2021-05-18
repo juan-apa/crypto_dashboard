@@ -1,0 +1,50 @@
+<% content_for :head do %>
+  <%#= javascript_pack_tag 'vendor/libs/chartjs/chartjs', 'data-turbo-track': 'reload' %>
+  <%= javascript_pack_tag 'home', 'data-turbo-track': 'reload' %>
+<% end %>
+
+<h4 class="font-weight-bold py-3 mb-4">
+  <%= dashboard.name %>
+</h4>
+
+<!-- Counters -->
+<div class="row">
+  <div class="col-sm-6 col-xl-3">
+    <div class="card mb-4">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <div class="lnr lnr-cart display-4 text-success"></div>
+          <div class="ml-3">
+            <div class="text-muted small">
+              <%= I18n.t('labels.spent_in', currency_symbol: @data[:default_coin].symbol) %>
+            </div>
+            <div class="text-large"><%= @data[:default_coin_spent] %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="card mb-4">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <div class="lnr lnr-earth display-4 text-info"></div>
+          <div class="ml-3">
+            <div class="text-muted small"><%= I18n.t('labels.coins_in_dashboard') %></div>
+            <div class="text-large"><%= @data[:coins_count] %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- / Counters -->
+
+<div class="row">
+  <div class="col-sm-6 col-xl-3">
+    <%= render 'dashboards/coins/revenue', data: @data %>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <%= render 'dashboards/coins/table', coins: @data[:coins] %>
+  </div>
+</div>

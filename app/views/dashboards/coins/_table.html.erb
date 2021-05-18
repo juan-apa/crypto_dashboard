@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-header"><%= I18n.t('labels.coins') %></div>
+  <table class="table card-table table-fixed">
+    <thead class="thead-light">
+      <tr>
+        <th class="text-left"><%= I18n.t('labels.symbol') %></th>
+        <th class="text-right"><%= I18n.t('labels.amount') %></th>
+        <th class="text-right"><%= I18n.t('labels.value') %></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% coins.each do |coin| %>
+      <tr>
+        <td class="text-left"><%= coin[:coin].symbol %></td>
+        <td class="text-right"><%= coin[:current_coin_amount].round(4) %></td>
+        <td class="text-right"><%= coin[:current_value].round(4) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

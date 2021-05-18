@@ -30,4 +30,11 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  labels:
+    spent_in: 'Spent In %{currency_symbol}'
+    coins_in_dashboard: 'Coins in this Dashboard'
+    total_revenue: 'Total revenue'
+    coins: 'Coins'
+    symbol: 'Symbol'
+    amount: 'Amount'
+    value: 'Value'
