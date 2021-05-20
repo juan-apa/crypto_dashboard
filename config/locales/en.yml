@@ -38,3 +38,5 @@ en:
     symbol: 'Symbol'
     amount: 'Amount'
     value: 'Value'
+    sign_out: 'Sign Out'
+    dashboard: 'Dashboard'

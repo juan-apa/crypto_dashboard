@@ -6,10 +6,15 @@
 
     <li class="sidenav-item<%= current_page?(root_path) ? ' active' : '' %>">
       <%= link_to root_path, class: "sidenav-link" do %>
-        <i class="sidenav-icon ion ion-ios-contact"></i><div>Dashboard</div>
+        <i class="sidenav-icon ion ion-ios-contact"></i><div><%= I18n.t('labels.dashboard') %></div>
       <% end %>
     </li>
 
+    <li class="sidenav-item mt-auto">
+      <%= button_to destroy_user_session_path, class: 'btn btn-link sidenav-link w-100', method: :delete, remote: true do %>
+        <i class="fas fa-sign-out-alt"></i>&nbsp;<div><%= I18n.t('labels.sign_out') %></div>
+      <% end %>
+    </li>
   </ul>
 </div>
 <!-- / Layout sidenav -->
