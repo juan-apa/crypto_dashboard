@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" class="dark-style layout-fixed">
+<html lang="en" class="dark-style layout-fixed h-100">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
@@ -54,7 +54,7 @@
 
   <%= yield :head %>
 </head>
-<body>
+<body class="h-100">
   <%= render "layouts/partials/layout-notification" %>
 
   <%= content_for?(:content) ? yield(:content) : yield %>
