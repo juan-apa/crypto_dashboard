@@ -12,6 +12,8 @@ module Calculators
       private
   
       def exchanges
+        return [] if dashboard.coins.empty?
+        
         Coinmarketcap::Coins::Exchange.call(dashboard.coins, user_default_coin).map do |coin_info|
           {
             coin_id: Coin.find_by(symbol: coin_info[:symbol]).id,
