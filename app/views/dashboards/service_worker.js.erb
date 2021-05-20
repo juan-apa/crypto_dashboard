@@ -1,0 +1,67 @@
+const CACHE_VERSION = 'v1';
+const CACHE_NAME = CACHE_VERSION + ':sw-cache-';
+const OFFLINE_URL = '/offline';
+
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(function prefill(cache) {
+      let offline_request = new Request(OFFLINE_URL, {
+        method: 'GET',
+        headers: { 'Content-Type': 'text/html' },
+        mode: 'cors',
+        cache: 'reload'
+      });
+      let favicon = new Request('favicon.ico', {
+        method: 'GET',
+        headers: { 'Content-Type': 'text/html' },
+        mode: 'cors',
+        cache: 'reload'
+      });
+      return cache.addAll([
+        offline_request,
+        favicon
+      ]);
+    })
+  )
+});
+
+self.addEventListener('activate', async function (event) {
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.filter(function(cacheName) {
+          return cacheName.indexOf(CACHE_VERSION) !== 0;
+        }).map(function(cacheName) {
+          return caches.delete(cacheName);
+        })
+      );
+    })
+  );
+});
+
+self.addEventListener('fetch', function (event) {
+  event.respondWith(
+    fetch(event.request).catch(function() {
+      return caches.match(event.request).then(function(response) {
+        if (response) {
+          return response;
+        }
+        if (event.request.mode === 'navigate' ||
+          (event.request.method === 'GET' && event.request.headers.get('accept').includes('text/html'))) {
+          return caches.match('/offline');
+        }
+      })
+    })
+  );
+});
+
+self.addEventListener('push', function(event) {
+  const notification = JSON.parse(event.data.text())
+  const options = {
+    body: notification.body,
+    icon: 'icons/icon-256x256.png',
+    data: notification.url ? { click_url: notification.url } : {}
+  };
+
+  event.waitUntil(self.registration.showNotification(notification.title, options));
+});

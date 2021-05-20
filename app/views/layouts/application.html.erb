@@ -1,63 +1,62 @@
 <!DOCTYPE html>
 
-<html lang="en" class="light-style">
+<html lang="en" class="dark-style layout-fixed h-100">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 
+  <link rel="manifest" href="/manifest.json"/>
+  
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <title><%= @title ? @title + " - " : "" %>Rails Starter</title>
+  <title><%= @title ? @title : 'Rails + Turbo Starter'%></title>
 
   <!-- Main font -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900" rel="stylesheet">
 
   <!-- Icons. Uncomment required icon fonts -->
-  <!-- <%= stylesheet_pack_tag 'vendor/fonts/fontawesome', media: 'all' %> -->
-  <%= stylesheet_pack_tag 'vendor/fonts/ionicons', media: 'all' %>
-  <!-- <%= stylesheet_pack_tag 'vendor/fonts/linearicons', media: 'all' %> -->
-  <!-- <%= stylesheet_pack_tag 'vendor/fonts/open-iconic', media: 'all' %> -->
-  <!-- <%= stylesheet_pack_tag 'vendor/fonts/pe-icon-7-stroke', media: 'all' %> -->
-
-  <!-- Core stylesheets -->
-  <%= stylesheet_pack_tag 'vendor/bootstrap', media: 'all' %>
-  <%= stylesheet_pack_tag 'vendor/appwork', media: 'all' %>
-  <%= stylesheet_pack_tag 'vendor/theme-corporate', media: 'all' %>
-  <%= stylesheet_pack_tag 'vendor/colors', media: 'all' %>
-  <%= stylesheet_pack_tag 'vendor/uikit', media: 'all' %>
-  <%= stylesheet_pack_tag 'application', media: 'all' %>
+  <%= stylesheet_pack_tag 'vendor/fonts/fontawesome', media: 'all', 'data-turbo-track': 'reload' %>
+  <%= stylesheet_pack_tag 'vendor/fonts/ionicons', media: 'all', 'data-turbo-track': 'reload' %>
+  
+  <%= stylesheet_pack_tag 'vendor/bootstrap-dark', media: 'all', 'data-turbo-track': 'reload' %>
+  <%= stylesheet_pack_tag 'vendor/appwork-dark', media: 'all', 'data-turbo-track': 'reload' %>
+  <%= stylesheet_pack_tag 'vendor/theme-twitlight-dark', media: 'all', 'data-turbo-track': 'reload' %>
+  <%= stylesheet_pack_tag 'vendor/colors-dark', media: 'all', 'data-turbo-track': 'reload' %>
+  <%= stylesheet_pack_tag 'vendor/uikit', media: 'all', 'data-turbo-track': 'reload' %>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
 
   <!-- Load polyfills -->
-  <%= javascript_pack_tag 'vendor/polyfills' %>
+  <%= javascript_pack_tag 'vendor/polyfills', 'data-turbo-track': 'reload' %>
   <script>document['documentMode']===10&&document.write('<script src="https://polyfill.io/v3/polyfill.min.js?features=Intl.~locale.en"><\/script>')</script>
 
   <!-- Layout helpers -->
-  <%= javascript_pack_tag 'vendor/layout-helpers' %>
+  <%= javascript_pack_tag 'vendor/layout-helpers', 'data-turbo-track': 'reload' %>
 
-  <!-- Libs -->
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <!-- `perfect-scrollbar` library required by SideNav plugin -->
-  <%= stylesheet_pack_tag 'vendor/libs/perfect-scrollbar/perfect-scrollbar', media: 'all' %>
+  <%= stylesheet_pack_tag 'vendor/libs/perfect-scrollbar/perfect-scrollbar', media: 'all', 'data-turbo-track': 'reload' %>
+  <%= javascript_pack_tag 'vendor/libs/perfect-scrollbar/perfect-scrollbar', 'data-turbo-track': 'reload' %>
 
-  <%= yield :styles %>
-</head>
-<body>
-
-  <%= content_for?(:content) ? yield(:content) : yield %>
+  <!-- Toastr notifications -->
+  <%= javascript_pack_tag 'vendor/libs/toastr/toastr', 'data-turbo-track': 'reload' %>
+  <%= stylesheet_pack_tag 'vendor/libs/toastr/toastr', media: 'all', 'data-turbo-track': 'reload' %>
 
   <!-- Core scripts -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <%= javascript_pack_tag 'vendor/libs/popper/popper' %>
-  <%= javascript_pack_tag 'vendor/bootstrap' %>
-  <%= javascript_pack_tag 'vendor/sidenav' %>
+  <%= javascript_pack_tag 'vendor/libs/popper/popper', 'data-turbo-track': 'reload' %>
+  <%= javascript_pack_tag 'vendor/bootstrap', 'data-turbo-track': 'reload' %>
+  <%= javascript_pack_tag 'vendor/sidenav', 'data-turbo-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload' %>
 
-  <!-- Scripts -->
-  <%= javascript_pack_tag 'vendor/libs/perfect-scrollbar/perfect-scrollbar' %>
-  <%= javascript_pack_tag 'application' %>
+  <%= yield :head %>
+</head>
+<body class="h-100">
+  <%= render "layouts/partials/layout-notification" %>
 
-  <%= yield :scripts %>
+  <%= content_for?(:content) ? yield(:content) : yield %>
 </body>
 </html>

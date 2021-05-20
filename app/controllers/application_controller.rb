@@ -1,4 +1,4 @@
 class ApplicationController < ActionController::Base
-  # Default layout
-  layout 'main/layout-1'
+  before_action :authenticate_user!
+  layout 'main/layout-without-navbar'
 end
