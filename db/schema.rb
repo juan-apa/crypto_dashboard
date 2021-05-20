@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_05_10_175228) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "coins", force: :cascade do |t|
     t.string "name", null: false
     t.string "slug", null: false
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_05_10_175228) do
   end
 
   create_table "dashboards", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "name", null: false
     t.boolean "default", default: false
     t.datetime "created_at", precision: 6, null: false
@@ -31,9 +34,9 @@ ActiveRecord::Schema.define(version: 2021_05_10_175228) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.integer "from_coin_id", null: false
-    t.integer "to_coin_id", null: false
-    t.integer "dashboard_id"
+    t.bigint "from_coin_id", null: false
+    t.bigint "to_coin_id", null: false
+    t.bigint "dashboard_id"
     t.decimal "from_amount", precision: 30, scale: 10, null: false
     t.decimal "to_amount", precision: 30, scale: 10, null: false
     t.datetime "created_at", precision: 6, null: false
@@ -58,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_05_10_175228) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
     t.string "last_name"
-    t.integer "default_coin_id"
+    t.bigint "default_coin_id"
     t.index ["default_coin_id"], name: "index_users_on_default_coin_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

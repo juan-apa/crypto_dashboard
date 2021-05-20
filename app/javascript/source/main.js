@@ -1,6 +1,6 @@
-(function(win, doc, $) {
+(function (win, doc, $) {
   const { themeSettings, layoutHelpers, attachMaterialRipple, detachMaterialRipple, SideNav } = win
-  let [ firstLoad, sidenavInstance ] = [ true, null ]
+  let [firstLoad, sidenavInstance] = [true, null]
 
   doc.addEventListener('turbo:before-render', e => {
     if (!themeSettings || $('html')[0].hasAttribute('data-turbo-preview')) return
@@ -20,7 +20,7 @@
       themeSettings._setup(e.data.newBody)
       setTimeout(() =>
         $('.layout-wrapper', e.data.newBody).removeClass('layout-sidenav-link-no-transition')
-      , 50)
+        , 50)
     }
   })
 
