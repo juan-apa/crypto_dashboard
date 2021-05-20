@@ -18,5 +18,19 @@ module RailsStarter
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    ActionMailer::Base.smtp_settings = {
+      address: 'smtp.sendgrid.net',
+      authentication: :plain,
+      domain: ENV['SERVER_HOST'],
+      enable_starttls_auto: true,
+      password: ENV['SENDGRID_API_KEY'],
+      port: 587,
+      user_name: 'apikey'
+    }
+
+    config.action_mailer.default_url_options = { host: ENV['SERVER_HOST'],
+                                                 port: ENV.fetch('PORT', 3000) }
+    config.action_mailer.default_options = { from: 'no-reply@api.com' }
   end
 end
