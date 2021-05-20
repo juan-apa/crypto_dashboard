@@ -8,17 +8,19 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  username:
-  password:
+  username: postgres
+  password: postgres
   # If you using docker the host should be "db"
   host: localhost
   port: 5432
 
 development:
-  adapter: sqlite3
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
-  database: db/development.sqlite3
+  # adapter: sqlite3
+  # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # timeout: 5000
+  # database: db/development.sqlite3
+  <<: *default
+  database: crypto_dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
