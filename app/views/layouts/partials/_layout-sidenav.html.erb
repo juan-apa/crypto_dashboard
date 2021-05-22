@@ -10,9 +10,10 @@
       <% end %>
     </li>
 
-    <li class="sidenav-item mt-auto">
-      <%= button_to destroy_user_session_path, class: 'btn btn-link sidenav-link w-100', method: :delete, remote: true do %>
-        <i class="fas fa-sign-out-alt"></i>&nbsp;<div><%= I18n.t('labels.sign_out') %></div>
+    <li class="sidenav-divider mt-auto mb-1"></li>
+    <li class="sidenav-item">
+      <%= button_to destroy_user_session_path, form_class: 'sidenav-link w-100', class: 'btn p-0 d-flex', method: :delete, remote: true do %>
+        <i class="sidenav-icon ion ion-md-log-out my-auto"></i><div><%= I18n.t('labels.sign_out') %></div>
       <% end %>
     </li>
   </ul>

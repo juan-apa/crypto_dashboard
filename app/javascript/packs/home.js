@@ -1,4 +1,4 @@
-$(document).on('turbo:load', function() {
+$(document).on('turbo:load', function () {
   // var chart1 = new Chart(document.getElementById('statistics-chart-1').getContext("2d"), {
   //   type: 'line',
   //   data: {
