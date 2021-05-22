@@ -1,5 +1,5 @@
 // Constants
-const TRANSITION_EVENTS = ['transitionend','webkitTransitionEnd','oTransitionEnd']
+const TRANSITION_EVENTS = ['transitionend', 'webkitTransitionEnd', 'oTransitionEnd']
 const TRANSITION_PROPERTIES = ['transition', 'MozTransition', 'webkitTransition', 'WebkitTransition', 'OTransition']
 const INLINE_STYLE = `
 .layout-fixed .layout-1 .layout-sidenav,
@@ -101,7 +101,7 @@ const layoutHelpers = {
     if (document.createEvent) {
       let event
 
-      if (typeof(Event) === 'function') {
+      if (typeof (Event) === 'function') {
         event = new Event(name)
       } else {
         event = document.createEvent('Event')
@@ -336,7 +336,7 @@ const layoutHelpers = {
     if (!this._sidenavMouseEnter) {
       this._sidenavMouseEnter = () => {
         if (this.isSmallScreen() || !this._hasClass('layout-collapsed') ||
-            this.isOffcanvas() || this._hasClass('layout-transitioning')) {
+          this.isOffcanvas() || this._hasClass('layout-transitioning')) {
           return this._setSidenavHoverState(false)
         }
 
@@ -461,7 +461,7 @@ const layoutHelpers = {
 
   isNavbarFixed() {
     return this._hasClass('layout-navbar-fixed') ||
-           (!this.isSmallScreen() && this.isFixed() && this.isLayout1())
+      (!this.isSmallScreen() && this.isFixed() && this.isLayout1())
   },
 
   isFooterFixed() {
