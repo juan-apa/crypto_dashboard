@@ -10,6 +10,10 @@ class DashboardsController < ApplicationController
     @data = dashboard_data
   end
 
+  def edit
+    dashboard.update(dashboard_params)
+  end
+
   def service_worker
     render 'service_worker', layout: false
   end
@@ -22,7 +26,7 @@ class DashboardsController < ApplicationController
 
   def dashboard
     @dashboard ||= if params[:id].present?
-      current_user.dashboard.find(params[:id])
+      current_user.dashboards.find(params[:id])
     else
       default_dashboard
     end
@@ -30,5 +34,9 @@ class DashboardsController < ApplicationController
 
   def dashboard_data
     @dashboard_data ||= Calculators::Dashboards::Information.call(dashboard)
+  end
+
+  def dashboard_params
+    params.require(:dashboard).permit(:name, :default)
   end
 end
