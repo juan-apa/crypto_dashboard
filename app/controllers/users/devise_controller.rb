@@ -1,6 +1,6 @@
 module Users
   class DeviseController < ApplicationController
-    layout 'application'
+    layout 'main/layout-blank'
     
     class Responder < ActionController::Responder
       def to_turbo_stream
