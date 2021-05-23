@@ -9,6 +9,7 @@ gem 'rails', '~> 6.1.3'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'delayed_job_active_record', '~> 4.1', '>= 4.1.6'
+gem 'foreman', '~> 0.87.2'
 gem 'hotwire-rails', '~> 0.1.3'
 gem 'httparty', '~> 0.18.1'
 gem 'pg', '~> 1.2', '>= 1.2.3'
