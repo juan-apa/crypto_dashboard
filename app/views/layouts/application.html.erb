@@ -52,11 +52,16 @@
   <%= javascript_pack_tag 'vendor/sidenav', 'data-turbo-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload' %>
 
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+
   <%= yield :head %>
 </head>
 <body class="h-100">
+  <%= render 'layouts/partials/refresher' %>
   <%= render "layouts/partials/layout-notification" %>
 
   <%= content_for?(:content) ? yield(:content) : yield %>
 </body>
+<%# Must go at the end because it searches for the refresher element in the DOM %>
+<%= javascript_pack_tag 'refresher', 'data-turbo-track': 'reload' %>
 </html>
