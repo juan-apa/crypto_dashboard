@@ -8,7 +8,8 @@ Rails.application.routes.draw do
 
   devise_scope :users do
     root 'dashboards#index'
-    resource :dashboard, only: :index
+    resources :dashboards, only: %i[update edit]
+    resource :dashboard, only: %i[index]
     get 'dashboards/:id/coins', to: 'dashboards#coins'
   end
   get 'service-worker.js', to: 'dashboards#service_worker'
